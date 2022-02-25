@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multiplespan</title>
+
+    <style>
+        * {
+           margin: 0;
+           padding: 0;
+       }
+
+       html {
+           width: 100%;
+           height: 100%;
+       }
+       h1{
+           margin-bottom: 10px;
+       }
+       body{
+           width: 100%;
+           height: 100%;
+           flex-direction: column;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           background-color: #DFF6FF;
+       }
+       .main{
+           background-color: #5D8BF4;
+           width: 55%;
+           height: 50%;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           border-radius: 10px;
+       }
+       span{
+           padding: 2px;
+       }
+       .next{
+           width: 55%;
+           height: 5%;
+           margin-top: 10px;
+           display: flex;
+           justify-content: space-between;
+           
+       }
+       .next button{
+           padding: 5px 10px; 
+           background-color: darkgray;
+           border-radius: 5px;  
+       }
+   </style>
+
+<script>
+
+
+        function changer() {
+            var val = document.querySelector('input[name="g1"]:checked').getAttribute('id');
+            var mp = 's' + val;
+
+            document.getElementById(mp).innerHTML = 'You are selected' + ' ' + val;
+
+
+            if (document.getElementById('php').checked == false) {
+                document.getElementById('sphp').innerHTML = '';
+            }
+            if (document.getElementById('aspnet').checked == false) {
+                document.getElementById('saspnet').innerHTML = '';
+            }
+            if (document.getElementById('asp').checked == false) {
+                document.getElementById('sasp').innerHTML = '';
+            }
+            if (document.getElementById('jsp').checked == false) {
+                document.getElementById('sjsp').innerHTML = '';
+            }
+            if (document.getElementById('perl').checked == false) {
+                document.getElementById('sperl').innerHTML = '';
+            }
+            if (document.getElementById('coldfusion').checked == false) {
+                document.getElementById('scoldfusion').innerHTML = '';
+            }
+            if (document.getElementById('other').checked == false) {
+                document.getElementById('sother').innerHTML = '';
+            }
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Multiple Span</h1>
+    <div class="main">
+
+        <div id="mcheck">
+            <div>
+                <p>Please Select any technology:</p>
+            </div>
+            <div>
+                <label class="labelcheck" for="php">PHP</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="php">
+                <div>
+                    <span for="php" id="sphp"></span>
+                </div>
+            </div>
+            <div>
+                <label class="labelcheck" for="aspnet">ASP.NET</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="aspnet">
+                <div>
+                    <span name="msg" id="saspnet"></span>
+                </div>
+            </div>
+            <div>
+                <label class="labelcheck" for="asp">ASP</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="asp">
+                <div>
+                    <span name="msg" id="sasp"></span>
+                </div>
+            </div>
+            <div>
+                <label class="labelcheck" for="jsp">JSP</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="jsp">
+                <div>
+                    <span name="msg" id="sjsp"></span>
+                </div>
+            </div>
+            <div>
+                <label class="labelcheck" for="perl">PERL</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="perl">
+                <div>
+                    <span name="msg" id="sperl"></span>
+                </div>
+            </div>
+            <div>
+                <label class="labelcheck" for="coldfusion">Cold Fusion</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="coldfusion">
+                <div>
+                    <span name="msg" id="scoldfusion"></span>
+                </div>
+            </div>
+            <div>
+                <label class="labelcheck" for="other">Other</label>
+                <input class="inputcheck" type="radio" onclick="changer()" class="g1" name="g1" id="other">
+                <div>
+                    <span for="php" id="sother"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="next">
+        <button class="button" onclick="window.location.href='singlespan.Html'">Previous</button>
+        <button class="button" onclick="window.location.href='multiplebutton.Html'">Next</button>
+    </div>
+</body>
+
+
+</html>
