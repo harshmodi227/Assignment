@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkboxes</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+           margin-bottom: 10px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #DFF6FF;
+        }
+        .main{
+            background-color: #5D8BF4;
+            width: 30%;
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .checkbox {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkbox div {
+            padding: 5px;
+        }
+        .next{
+            width: 30%;
+            height: 5%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .next button{
+            padding: 5px 10px;
+            background-color: darkgray; 
+            border-radius: 5px;  
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Check Boxes</h1>
+    <div class="main">
+        
+        <div class="checkbox">
+            <div>
+                <input type="checkbox" id="USA" name="city" value="USA" onclick="change()" />
+                <label for="USA">USA</label>
+            </div>
+            <div>
+                <input type="checkbox" id="UK" name="city" value="UK" onclick="change()" />
+                <label for="UK">UK</label>
+            </div>
+            <div>
+                <input type="checkbox" id="India" name="city" value="India" onclick="change()" />
+                <label for="India">India</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Asia Pacific" name="city" value="Asia Pacific" onclick="change()" />
+                <label for="Asia Pacific">Asia Pacific</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Australia" name="city" value="Australia" onclick="change()" />
+                <label for="Australia">Australia</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Middle East" name="city" value="Middle East" onclick="change()" />
+                <label for="Middle East">Middle East</label>
+            </div>
+            <div>
+                <input type="checkbox" id="Check All" name="checkall" value="Check All" onclick="checkAll(this)" />
+                <label for="Check All">Check All</label>
+            </div>
+        </div>
+    </div>
+    <div class="next">
+        <button type="button" id="s1" value="Next" onclick="window.location.href='multiplebutton.html'" >Previous</button>
+        <button type="button" id="s1" value="Next" onclick="window.location.href='datevalidation.html'" >Next</button>
+    </div>
+    
+</body>
+
+<script>
+    function checkAll(e) {
+        var c = document.getElementsByName("city");
+        if (e.checked) {
+            for (i = 0; i < c.length; i++) {
+                c[i].checked = true;
+            }
+        }
+        else {
+            for (i = 0; i < c.length; i++) {
+                c[i].checked = false;
+            }
+        }
+    }
+    function change() {
+        var totalcheckbox = document.querySelectorAll('input[name="city"]').length;
+        var totalchecked = document.querySelectorAll('input[name="city"]:checked').length;
+
+        if (totalcheckbox == totalchecked) {
+            document.getElementsByName("checkall")[0].checked = true;
+        }
+        else {
+            document.getElementsByName("checkall")[0].checked = false;
+        }
+    }
+</script>
+
+</html>
