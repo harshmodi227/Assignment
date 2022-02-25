@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Date</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+           margin-bottom: 10px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #DFF6FF;
+        }
+        .main{
+            background-color: #5D8BF4;
+            width: 40%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .main div{
+            margin: 10px;
+        }
+        .main label,input{
+            padding: 5px;
+        }
+        .next{
+            width: 30%;
+            height: 5%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .next button{
+            padding: 5px 10px;
+            background-color: darkgray;
+            border-radius: 5px;   
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Next Date</h1>
+    <div class="main">
+        <label for="Date"><b>Enter Date </b></label>
+        <input type="text" name="Date" id="datevalue" placeholder="MM/DD/YYYY" oninput="funDate()">
+        <div>
+            <span id="w"></span>
+        </div>
+
+        <label for="Date"><b>Enter Day </b></label>
+        <input type="text" name="Date" id="datevalue" placeholder="Enter day">
+
+        <div>
+            <input type="button" onclick="funDay()" value="GetDate" />
+        </div>
+        <div>
+            <input type="text" name="Date" id="getvalue" placeholder="">
+        </div>
+    </div>
+
+    <div class="next">
+        <button type="button" id="s1" value="Next" onclick="window.location.href='print.html'" >Previous</button>
+    </div>
+    
+</body>
+
+<script>
+    function funDate() {
+            var input = document.getElementById("datevalue");
+            var validformat = /^\d{2}\/\d{2}\/\d{4}$/;
+            if (!validformat.test(input.value))
+                document.getElementById("w").innerHTML =
+                    "Please enter date in MM-DD-YY format";
+            else {
+                var monthfield = input.value.split("/")[0];
+                var dayfield = input.value.split("/")[1];
+                var yearfield = input.value.split("/")[2];
+                var dayobj = new Date(yearfield, monthfield - 1, dayfield);
+                if (
+                    dayobj.getMonth() + 1 != monthfield ||
+                    dayobj.getDate() != dayfield ||
+                    dayobj.getFullYear() != yearfield
+                ){
+                    document.getElementById("w").innerHTML =
+                        "Invalid Day, Month, or Year range detected. Please correct and submit again.";}
+                else{
+                    document.getElementById("w").innerHTML =
+                        'You have entered valid date. Its "' + dayobj.toLocaleDateString() + '". Thank you.';}
+                return dayobj;
+            }
+            
+        }
+        function funDay() {
+            debugger;
+            var date = new Date(funDate());
+            console.log(funDate());
+            var newdate  = new Date();
+            newdate.setDate(newdate.getDate() + document.getElementById("datevalue").value);
+            document.getElementById("getvalue").value = funDate();
+        }
+        
+</script>
+
+
+
+</html>
