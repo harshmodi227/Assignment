@@ -1,0 +1,106 @@
+<!-- Requirement :
+		
+		- Check if the value entered in Text Box is a numeric value or not, i.e., text characters and even null/empty values should not be allowed.
+		- Error messages : In case of empty field - "Please enter any numeric value" and in case of non-numeric value - "Only numeric values are allowed. Please re-enter the value". Final message - "Entered value is a numeric value".
+		- Provide appropriate focus to the error fields.
+
+	HINT : Use in-built javascript "isNaN()" function. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numeric1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+           margin-bottom: 10px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #DFF6FF;
+        }
+        .main{
+            background-color: #5D8BF4;
+            width: 30%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        .submit input{
+            margin-top: 20px;
+            padding: 5px 10px;
+        }
+        .next{
+            width: 30%;
+            height: 5%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            
+        }
+        .next button{
+            padding: 5px 10px; 
+            background-color: darkgray; 
+            border-radius: 5px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Numeric1</h1>
+    <div class="main">
+        <div class="text">
+            <label type="text"><b>Number: </b></label>
+            <input type="text" id="num" oninput="funInp()" />
+        </div>
+        <span id="error"></span>
+        <div class="submit">
+            <input type="submit" />
+        </div>
+       
+    </div>
+    <div class="next">
+        <button type="button" id="s1" value="Next" onclick="window.location.href='numeric2.html'" >Next</button>
+    </div>
+
+</body>
+
+
+<script>
+    function funInp() {
+        var num = document.getElementById("num").value;
+
+        if (num == null || num == "") {
+            document.getElementById("error").innerHTML = "Please enter any numeric value";
+        }
+        else if (isNaN(num)) {
+            document.getElementById("error").innerHTML = "Only numeric values are allowed. Please re-enter the value";
+        }
+        else {
+            document.getElementById("error").innerHTML = "Entered value is a numeric value";
+        }
+    }
+
+</script>
+
+</html>
