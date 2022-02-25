@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>math</title>
+</head>
+<style>
+    * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+           margin-bottom: 10px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #DFF6FF;
+        }
+        .main{
+            background-color: #5D8BF4;
+            width: 30%;
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            padding:10px;
+            border-radius: 10px;
+        }
+        .main div{
+            margin-top: 5px;
+        }
+
+    .labelinput {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .radiobutton {
+        display: flex;
+        flex-direction: row;
+    }
+    .next{
+            width: 30%;
+            height: 5%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+    .next button{
+            padding: 5px 10px;
+            background-color: darkgray; 
+            border-radius: 5px;  
+        }
+</style>
+
+<body>
+    <h1>Math</h1>
+    <div class="main">
+        <div class="labelinput">
+            <label for="fNumber">Please enter first number : </label>
+            <input type="text" name="fNumber" id="fNumber" oninput="validate1()">
+        </div>
+        <div>
+            <span id="inputa"></span>
+        </div>
+        <div class="labelinput">
+            <label for="sNumber">Please enter second number : </label>
+            <input type="text" name="sNumber" id="sNumber" oninput="validate2()">
+        </div>
+        <div>
+            <span id="inputb"></span>
+        </div>
+        <div class="labelinput">
+            <div class="radiolabel">
+                <label for="sNumber">Please select operation you want to perform : </label>
+            </div>
+
+            <div>
+                <div class="radiobutton">
+                    <input type="radio" name="radio" id="addition">
+                    <label for="addition">+ Addition</label>
+                </div>
+                <div class="radiobutton">
+                    <input type="radio" name="radio" id="subtraction">
+                    <label for="subtraction">- Subtraction</label>
+                </div>
+                <div class="radiobutton">
+                    <input type="radio" name="radio" id="multiplication">
+                    <label for="multiplication">* Multiplication</label>
+                </div>
+                <div class="radiobutton">
+                    <input type="radio" name="radio" id="division">
+                    <label for="division">/ Division</label>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <button type="submit" onclick="calculate()">Calculate</button>
+            <button type="reset" onclick="resetf()">Reset</button>
+        </div>
+        <div>
+            <label for="result">Result is :</label>
+            <input type="text" name="result" id="result" placeholder="Ans is..">
+        </div>
+
+    </div>
+    <div class="next">
+        <button type="button" id="s1" value="Next" onclick="window.location.href='datevalidationenhan.html'" >Previous</button>
+        <button type="button" id="s1" value="Next" onclick="window.location.href='popup1.html'" >Next</button>
+    </div>
+
+    <script>
+        function validate1() {
+            var a = document.getElementById("fNumber").value;
+            var reg = a.match(/\D/g);
+            if (a == null || a == "") {
+                document.getElementById("inputa").innerHTML =
+                    "Please enter any numeric value.";
+            } else if (reg != null) {
+                document.getElementById("inputa").innerHTML =
+                    "Only numeric values are allowed. Please re-enter the value.";
+            }
+            else {
+                document.getElementById("inputa").innerHTML = "";
+            }
+        }
+        function validate2() {
+            var a = document.getElementById("sNumber").value;
+            var reg = a.match(/\D/g);
+            if (a == null || a == "") {
+                document.getElementById("inputb").innerHTML =
+                    "Please enter any numeric value.";
+            } else if (reg != null) {
+                document.getElementById("inputb").innerHTML =
+                    "Only numeric values are allowed. Please re-enter the value.";
+            } else {
+                document.getElementById("inputb").innerHTML = "";
+            }
+        }
+        function calculate() {
+            var a = parseInt(document.getElementById("fNumber").value);
+            var b = parseInt(document.getElementById("sNumber").value);
+            if (document.getElementById("addition").checked == true) {
+                result = a + b;
+                document.getElementById("result").value = result;
+            }
+            if (document.getElementById("subtraction").checked == true) {
+                result = a - b;
+                document.getElementById("result").value = result;
+            }
+            if (document.getElementById("multiplication").checked == true) {
+                result = a * b;
+                document.getElementById("result").value = result;
+            }
+            if (document.getElementById("division").checked == true) {
+                result = a / b;
+                document.getElementById("result").value = result;
+            }
+
+        }
+        function resetf() {
+            document.getElementById("fNumber").value = "";
+            document.getElementById("sNumber").value = "";
+            var ele = document.getElementsByName("radio");
+            for (var i = 0; i < ele.length; i++)
+                ele[i].checked = false;
+            document.getElementById("result").value = "";
+        }
+    </script>
+</body>
+
+</html>
