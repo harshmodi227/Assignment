@@ -1,0 +1,127 @@
+<!-- Requirement :
+
+		- Label : "Please select your technology :".
+		- Consider following set of radio buttons :-  
+		"PHP", "ASP.NET", "ASP", "JSP", "PERL", "Cold Fusion", "Other". Layout these buttons in a Horizontal manner.	
+		- Clicking on a particular radio button should display the related technology name besides label : "You have selected : ".
+		- Use only one "span" HTML element for displaying the related message.
+		- Note that radio button should be selectable by clicking on the corresponding label. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>singlespan</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+           margin-bottom: 10px;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #DFF6FF;
+        }
+        .main{
+            background-color: #5D8BF4;
+            width: 50%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        span{
+            padding: 5px;
+        }
+        .next{
+            width: 50%;
+            height: 5%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .next button{
+            padding: 5px 10px; 
+            background-color: darkgray; 
+            border-radius: 5px; 
+        }
+    </style>
+
+</head>
+
+
+
+<body>
+    <h1>Single Span</h1>
+<div class="main">
+    <div class="btnRadio">
+        <label>Please select your technology :</label>
+        <input type="radio" id="PHP" name="technology" value="PHP" onclick="funRadio()" />
+        <label for="PHP">PHP</label>
+
+        <input type="radio" id="ASP.NET" name="technology" value="ASP.NET" onclick="funRadio()" />
+        <label for="ASP.NET">ASP.NET</label>
+
+        <input type="radio" id="ASP" name="technology" value="ASP" onclick="funRadio()" />
+        <label for="ASP">ASP</label>
+
+        <input type="radio" id="JSP" name="technology" value="JSP" onclick="funRadio()" />
+        <label for="JSP">JSP</label>
+
+        <input type="radio" id="PERL" name="technology" value="PERL" onclick="funRadio()" />
+        <label for="PERL">PERL</label>
+
+        <input type="radio" id="Cold Fusion" name="technology" value="Cold Fusion" onclick="funRadio()" />
+        <label for="Cold Fusion">Cold Fusion</label>
+
+        <input type="radio" id="others" name="technology" value="others" onclick="funRadio()" />
+        <label for="others">others</label>
+    </div>
+
+        <span id="span"></span>
+</div>
+<div class="next">
+    <button type="button" id="s1" value="Next" onclick="window.location.href='submitfrombutton.html'" >Previous</button>
+    <button type="button" id="s1" value="Next" onclick="window.location.href='multiplespan.html'" >Next</button>
+</div>
+</body>
+
+<script>
+    function funRadio() {
+
+        var p = document.getElementsByName('technology');
+
+        for (i = 0; i < p.length; i++) {
+            if (p[i].checked == true) {
+                document.getElementById("span").innerHTML = "Selected Technology is: " + p[i].value;
+            }
+        }
+
+    }
+
+    // function funRadio(){
+    //     var p = document.querySelector('input:[name="technology"]:checked').getAttribute('value');
+    //     document.getElementById("span").innerHTML = "Selected technology is: " + p;
+    // }
+</script>
+
+</html>
